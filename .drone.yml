@@ -7,6 +7,7 @@ metadata:
 
 steps:
 - name: juju
-  image: jujusolutions/jujubox
+  image: jujusolutions/jujubox:latest
+  pull: always
   commands:
   - sudo apt-get update
