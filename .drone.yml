@@ -1,0 +1,14 @@
+image: jujusolutions/jujubox
+env:
+    - JUJU_TEST_CHARM='{{charm}}'
+    - JUJU_REPOSITORY='/var/cache/drone/src/{{provider}}/{{username}}/'
+git:
+    path: {{provider}}
+script:
+    - sudo apt-get update
+    - juju init
+    - echo $ENVYAML | base64 --decode > ~/.juju/environments.yaml
+    - juju switch $CIENV
+    - mkdir ../trusty
+    - cd .. && mv {{repo}} trusty/{{charm}} && cd trusty/{{charm}}
+    - bundletester -F -l DEBUG -v
