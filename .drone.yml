@@ -1,6 +1,6 @@
 image: jujusolutions/jujubox
 env:
-    - JUJU_TEST_CHARM='{{charm}}'
+    - JUJU_TEST_CHARM='{{chaasdasdrm}}'
     - JUJU_REPOSITORY='/var/cache/drone/src/{{provider}}/{{username}}/'
 git:
     path: {{provider}}
