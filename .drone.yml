@@ -8,6 +8,8 @@ metadata:
 steps:
 - name: juju
   image: jujusolutions/jujubox:latest
-  pull: always
+  environment:
+    REGISTER_TOKEN: juju-drone-register
   commands:
-  - sudo apt-get update
+  - juju register ${REGISTER_TOKEN}
+  - juju status
