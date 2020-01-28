@@ -12,4 +12,4 @@ steps:
     REGISTER_TOKEN:
       from_secret: juju-drone-register
   commands:
-  - juju register $REGISTER_TOKEN
+  - juju register \$REGISTER_TOKEN
