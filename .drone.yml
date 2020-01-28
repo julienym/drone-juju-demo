@@ -9,7 +9,8 @@ steps:
 - name: juju
   image: jujusolutions/jujubox:latest
   environment:
-    REGISTER_TOKEN: juju-drone-register
+    REGISTER_TOKEN:
+      from_secret: juju-drone-register
   commands:
   - juju register ${REGISTER_TOKEN}
   - juju status
