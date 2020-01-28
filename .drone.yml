@@ -12,5 +12,6 @@ steps:
     REGISTER_TOKEN:
       from_secret: juju-drone-register
   commands:
+  - env
   - juju register ${REGISTER_TOKEN}
   - juju status
