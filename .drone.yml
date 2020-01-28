@@ -9,8 +9,10 @@ steps:
 - name: juju
   image: jujusolutions/jujubox:latest
   environment:
+    BOBO: -a
     REGISTER_TOKEN:
       from_secret: juju-drone-register
   commands:
   - set -x
-  - juju register ${REGISTER_TOKEN}
+  - ls $${BOBO}
+  - juju register $${REGISTER_TOKEN}
