@@ -13,4 +13,4 @@ steps:
       from_secret: juju-drone-register
   commands:
   - set -x
-  - juju register \${REGISTER_TOKEN}
+  - juju register ${REGISTER_TOKEN}
