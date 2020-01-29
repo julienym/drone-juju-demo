@@ -13,3 +13,7 @@ steps:
       from_secret: juju-droneci-passwd
   commands:
   - echo $${DRONECI_PASSWD} | juju login juju.lab-linux.com -u droneci
+  - juju switch drone-minecraft-demo
+  - juju deploy postgresql
+  - juju deploy charms/minetest-server --series bionic
+  - juju add-relation postgresql:db minetest-server:db

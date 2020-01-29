@@ -1,0 +1,54 @@
+#!/bin/sh
+
+CONFIG_FILE=/home/minetest/.minetest/worlds/world/world.mt
+
+PORT=`config-get port`
+if [ ! -z "$PORT" ]; then
+    sed -i -e "s/^port \= .*/port \= ${PORT}/" $CONFIG_FILE
+fi
+open-port $PORT/udp
+
+SERVER_NAME=`config-get server-name`
+if [ ! -z "$SERVER_NAME" ]; then
+    sed -i -e "s/^server_name \= .*/server_name \= ${SERVER_NAME}/" $CONFIG_FILE
+fi
+
+DESCRIPTION=`config-get description`
+if [ ! -z "$DESCRIPTION" ]; then
+    sed -i -e "s/^server_description \= .*/server_description \= ${DESCRIPTION}/" $CONFIG_FILE
+fi
+
+MOTD=`config-get motd`
+if [ ! -z "$MOTD" ]; then
+    sed -i -e "s/^motd \= .*/motd \= ${MOTD}/" $CONFIG_FILE
+fi
+
+STRICT_PROTOCOL_VERSION_CHECKING=`config-get strict-protocol-version-checking`
+if [ ! -z "$STRICT_PROTO_VERSION" ]; then
+    sed -i -e "s/^strict_protocol_version_checking \= .*/strict_protocol_version_checking \= ${STRICT_PROTOCOL_VERSION_CHECKING}/" $CONFIG_FILE
+fi
+
+CREATIVE_MODE=`config-get creative-mode`
+if [ ! -z "$CREATIVE_MODE" ]; then
+    sed -i -e "s/^creative_mode \= .*/creative_mode \= ${CREATIVE_MODE}/" $CONFIG_FILE
+fi
+
+ENABLE_DAMAGE=`config-get enable-damage`
+if [ ! -z "$ENABLE_DAMAGE" ]; then
+    sed -i -e "s/^enable_damage \= .*/enable_damage \= ${ENABLE_DAMAGE}/" $CONFIG_FILE
+fi
+
+DEFAULT_PASSWORD=`config-get default-password`
+if [ ! -z "$DEFAULT_PASSWORD" ]; then
+    sed -i -e "s/^default_password \= .*/default_password \= ${DEFAULT_PASSWORD}/" $CONFIG_FILE
+fi
+
+DEFAULT_PRIVS=`config-get default-privs`
+if [ ! -z "$DEFAULT_PRIVS" ]; then
+    sed -i -e "s/^default_privs \= .*/default_privs \= ${DEFAULT_PRIVS}/" $CONFIG_FILE
+fi
+
+ENABLE_PVP=`config-get enable-pvp`
+if [ ! -z "$ENABLE_PVP" ]; then
+    sed -i -e "s/^enable_pvp \= .*/enable_pvp \= ${ENABLE_PVP}/" $CONFIG_FILE
+fi

@@ -1,0 +1,14 @@
+Minetest is a fun, free and open source voxel game inspired by Minecraft.
+It supports various game modes, like survival and creative, and many more can
+be added with mods.
+
+This Charm deploys a basic game server, and is backed by a PostgreSQL database
+for maximum performance. There are no mods, so you will need to add them
+yourself.
+
+To deploy:
+
+$ juju bootstrap
+$ juju deploy postgresql
+$ juju deploy minetest-server
+$ juju expose minetest-server

@@ -1,0 +1,18 @@
+name: minetest-server
+summary: Minetest is a opensource voxel game designed to be modded.
+maintainer: Matthew Ruffell <matthew.ruffell@canonical.com>
+description: |
+    Minetest is a fun, opensource voxel game engine that can be customised with
+    different game modes and mods.
+    This charm installs Minetest with a PostgreSQL backend.
+tags:
+- social
+series:
+- eoan
+- bionic
+provides:
+    server:
+        interface: minetest
+requires:
+    db:
+        interface: postgresql
