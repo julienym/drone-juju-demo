@@ -9,10 +9,7 @@ steps:
 - name: juju
   image: jujusolutions/jujubox:latest
   environment:
-    BOBO: -a
-    REGISTER_TOKEN:
-      from_secret: juju-drone-register
+    DRONECI_PASSWD:
+      from_secret: juju-droneci-passwd
   commands:
-  - set -x
-  - ls $${BOBO}
-  - juju register $${REGISTER_TOKEN}
+  - echo $${DRONECI_PASSWD} | juju login juju.lab-linux.com -u droneci
