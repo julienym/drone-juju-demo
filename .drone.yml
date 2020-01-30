@@ -13,7 +13,7 @@ steps:
       from_secret: juju-droneci-passwd
   commands:
   - echo $${DRONECI_PASSWD} | juju login juju-ws1.lab-linux.com -u droneci
-  - juju switch drone-wordpress-demo
+  - juju switch admin/drone-wordpress-demo
   - cd charms/wordpress
   - charm build
   - juju deploy mysql --series xenial
