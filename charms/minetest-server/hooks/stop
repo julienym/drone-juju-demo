@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-juju-log "Stopping Minetest Server"
-systemctl stop minetest
