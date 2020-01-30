@@ -7,15 +7,15 @@ metadata:
 
 steps:
 - name: juju
-  image: jujusolutions/charmbox:latest
+  # image: jujusolutions/charmbox:latest
+  image: jujusolutions/jujubox:latest
   environment:
     DRONECI_PASSWD:
       from_secret: juju-droneci-passwd
   commands:
   - echo $${DRONECI_PASSWD} | juju login juju-ws1.lab-linux.com -u droneci
   - juju switch admin/drone-wordpress-demo
-  - cd charms/wordpress
-  - charm build
-  - juju deploy mysql --series xenial
-  - juju deploy /tmp/charm-builds/wordpress
+  - juju deploy mysql
+  - juju deploy wordpress
   - juju add-relation wordpress mysql
+  - juju expose wordpress
