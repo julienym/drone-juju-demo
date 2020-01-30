@@ -1,19 +1,17 @@
 name: wordpress
-summary: <Fill in summary here>
-maintainer: Julien <Julien@julien-x1>
+summary: The wordpress CMS
+maintainer: GARR CSD <cloud-supporta@garr.it>
 description: |
-  <Multi-line description here>
+  The
+  wordpress
+  CMS
 tags:
-  # Replace "misc" with one or more whitelisted tags from this list:
-  # https://jujucharms.com/docs/stable/authors-charm-metadata
-  - misc
+  - cms
 subordinate: false
+series: [trusty]
 provides:
-  provides-relation:
-    interface: interface-name
+  website:
+    interface: http
 requires:
-  requires-relation:
-    interface: interface-name
-peers:
-  peer-relation:
-    interface: interface-name
+  database:
+    interface: mysql

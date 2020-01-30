@@ -1,6 +1,6 @@
 kind: pipeline
 type: kubernetes
-name: juju-test22
+name: juju-test1
 
 metadata:
   namespace: drone
@@ -12,7 +12,10 @@ steps:
     DRONECI_PASSWD:
       from_secret: juju-droneci-passwd
   commands:
-  - echo $${DRONECI_PASSWD} | juju login juju.lab-linux.com -u droneci
-  - juju deploy postgresql -m drone-minecraft-demo
-  - juju deploy ./charms/minetest-server --series bionic -m drone-minecraft-demo
-  - juju add-relation postgresql:db minetest-server:db -m drone-minecraft-demo
+  - echo $${DRONECI_PASSWD} | juju login juju-ws1.lab-linux.com -u droneci
+  - juju switch drone-wordpress-demo
+  - cd charms/wordpress
+  - charm build
+  - juju deploy mysql --series xenial
+  - juju deploy /tmp/charm-builds/wordpress
+  - juju add-relation wordpress mysql
