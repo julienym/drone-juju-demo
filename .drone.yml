@@ -7,7 +7,7 @@ metadata:
 
 steps:
 - name: juju
-  image: jujusolutions/jujucharm:latest
+  image: jujusolutions/charmbox:latest
   environment:
     DRONECI_PASSWD:
       from_secret: juju-droneci-passwd
