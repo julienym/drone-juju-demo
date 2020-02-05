@@ -1,6 +1,6 @@
 kind: pipeline
 type: kubernetes
-name: juju-test1
+name: juju-test
 
 metadata:
   namespace: drone
